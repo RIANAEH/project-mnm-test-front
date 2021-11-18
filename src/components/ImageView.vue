@@ -50,8 +50,10 @@ import axios from 'axios'
         },
         methods: {
           getImage() {
-            axios.get('http://localhost:5050/image', {
-              params: { image_path: this.get.imagePath}
+            axios.get('http://localhost:5050/user/image', {
+              params: { imagePath: this.get.imagePath },
+              headers: { 'X-AUTH-TOKEN': localStorage.getItem('token') },
+              timeout: 1000 // 1초 이내에 응답이 없으면 에러 처리
             })
             .then((res) => {
               console.log(`status code: ${res.status}`);

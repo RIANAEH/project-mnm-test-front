@@ -162,13 +162,17 @@ import axios from 'axios'
         },
         methods: {
             postMatchingInfo() {
-                axios.post('http://localhost:5050/matchinginfo/', {
+                axios.post('http://localhost:5050/user/matchinginfo/', {
                     user: {
                         id: this.post.uid
                     },
                     mbti: this.post.mbti,
                     mateSmoking: this.post.mateSmoking
-                })
+                }, { 
+                    headers: {
+                        'X-AUTH-TOKEN': localStorage.getItem('token')
+                    }
+                    })
                 .then((res) => {
                 console.log(`status code: ${res.status}`);
                 console.log(`response: ${res.data.response}`);
@@ -182,7 +186,9 @@ import axios from 'axios'
                 });
             },
             getMatchingInfo() {
-                axios.get('http://localhost:5050/matchinginfo/' + this.get.uid)
+                axios.get('http://localhost:5050/user/matchinginfo/' + this.get.uid, {
+                    headers: { 'X-AUTH-TOKEN': localStorage.getItem('token') }
+                })
                 .then((res) => {
                 console.log(`status code: ${res.status}`);
                 console.log(`response: ${res.data.response}`);
