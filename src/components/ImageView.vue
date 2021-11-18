@@ -1,6 +1,8 @@
 <template>
     <v-container>
-        <h1>이미지</h1>
+        <v-expansion-panel>
+        <v-expansion-panel-header><h1>이미지 관리</h1></v-expansion-panel-header>
+        <v-expansion-panel-content>
         <v-card class="mt-2">
           <v-card-title><h2>이미지 불러오기</h2></v-card-title>
           <v-card-text>
@@ -32,6 +34,8 @@
             </v-container>
           </v-card-text>
         </v-card>
+    </v-expansion-panel-content>
+    </v-expansion-panel>
     </v-container>
 </template>
 

@@ -38,9 +38,11 @@
     </v-app-bar>
 
     <v-content>
-      <ImageView/>
-      <AuthView/>
-      <MatchingView/>
+      <v-expansion-panels>
+        <ImageView/>
+        <AuthView/>
+        <MatchingView/>
+      </v-expansion-panels>
     </v-content>
   </v-app>
 </template>
