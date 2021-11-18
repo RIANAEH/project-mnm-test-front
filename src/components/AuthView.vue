@@ -1,7 +1,19 @@
 <template>
     <v-container>
         <v-expansion-panel>
-        <v-expansion-panel-header><h1>회원 관리</h1></v-expansion-panel-header>
+        <v-expansion-panel-header>
+            <span>
+            <v-badge
+                :value="loginCheck"
+                bordered
+                color="success"
+                icon="mdi-checkbox-marked-circle"
+                overlap
+            >
+                <h1>회원 관리</h1>
+            </v-badge>
+            </span>
+        </v-expansion-panel-header>
         <v-expansion-panel-content>
         <v-card class="mt-2">
             <v-card-title><h2>회원가입</h2></v-card-title>
@@ -101,6 +113,7 @@ import axios from 'axios'
     export default {
         data() {
             return {
+                loginCheck: 0,
                 join : {
                     email: '',
                     password: '', 
@@ -160,6 +173,8 @@ import axios from 'axios'
                     // 로컬스토리지에 토큰 저장
                     localStorage.setItem('token', this.login.data.token);
                     console.log(localStorage.getItem('token'));
+
+                    this.loginCheck = 1;
                 })
                 .catch(err => {
                     console.log(err);
@@ -170,6 +185,8 @@ import axios from 'axios'
                 if (localStorage.getItem('token') === null) this.logout.response = "success";
                 else this.logout.response = "failed";
                 this.logout.view = true;
+
+                this.loginCheck = 0;
             }
         }
     }

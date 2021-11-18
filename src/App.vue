@@ -39,8 +39,8 @@
 
     <v-content>
       <v-expansion-panels>
-        <ImageView/>
         <AuthView/>
+        <ImageView/>
         <MatchingView/>
       </v-expansion-panels>
     </v-content>
