@@ -137,6 +137,13 @@ import axios from 'axios'
                     this.login.message = res.data.message;
                     this.login.data = JSON.parse(res.data.data);
                     this.login.view = true;
+
+                    // 로컬스토리지에 토큰 저장
+                    localStorage.setItem('token', this.login.data.token);
+                    console.log(localStorage.getItem('token'));
+                })
+                .catch(err => {
+                    console.log(err);
                 });
             }
         }
