@@ -77,6 +77,17 @@
                 </v-container>
             </v-card-text>
         </v-card>
+        <v-card class="mt-2">
+            <v-card-title><h2>로그아웃</h2></v-card-title>
+                <v-card-text>
+                    <v-container>
+                        <v-btn @click="deleteToken">DELETE token</v-btn>
+                    </v-container>
+                <v-container>
+                    <div v-if='logout.view === true'>token: {{ logout.response }}</div>
+                </v-container>
+            </v-card-text>
+        </v-card>
     </v-container>
 </template>
 
@@ -101,6 +112,10 @@ import axios from 'axios'
                     message: '',
                     data: '', 
                     view: false                    
+                },
+                logout: {
+                    response: '',
+                    view: false
                 }
             }
         },
@@ -145,6 +160,12 @@ import axios from 'axios'
                 .catch(err => {
                     console.log(err);
                 });
+            },
+            deleteToken() {
+                localStorage.removeItem('token');
+                if (localStorage.getItem('token') === null) this.logout.response = "success";
+                else this.logout.response = "failed";
+                this.logout.view = true;
             }
         }
     }
