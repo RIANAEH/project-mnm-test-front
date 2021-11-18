@@ -42,7 +42,7 @@
                                 ></v-text-field>
                             </v-col>
                         </v-row>
-                        <v-btn @click="postJoin">POST join</v-btn>
+                        <v-btn dark color="teal lighten-3" @click="postJoin">POST join</v-btn>
                     </v-container>
                 </v-form>
                 <v-container>
@@ -79,7 +79,7 @@
                                 ></v-text-field>
                             </v-col>
                         </v-row>
-                        <v-btn @click="postLogin">POST login</v-btn>
+                        <v-btn dark color="teal lighten-3" @click="postLogin">POST login</v-btn>
                     </v-container>
                 </v-form>
                 <v-container>
@@ -95,7 +95,7 @@
             <v-card-title><h2>로그아웃</h2></v-card-title>
                 <v-card-text>
                     <v-container>
-                        <v-btn @click="deleteToken">DELETE token</v-btn>
+                        <v-btn dark color="teal lighten-3" @click="deleteToken">DELETE token</v-btn>
                     </v-container>
                 <v-container>
                     <div v-if='logout.view === true'>token: {{ logout.response }}</div>

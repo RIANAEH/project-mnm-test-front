@@ -24,7 +24,7 @@
                         border="left"
                         colored-border
                         icon="mdi-firework"
-                        color="orange accent-5"
+                        color="teal lighten-3 accent-5"
                         elevation="2"
                     >
                         당신의 성별은..?
@@ -34,12 +34,12 @@
                         >
                             <v-radio
                                 label="여자"
-                                color="orange"
+                                color="teal lighten-3"
                                 value="1"
                             ></v-radio>
                             <v-radio
                                 label="남자"
-                                color="orange"
+                                color="teal lighten-3"
                                 value="0"
                             ></v-radio>
                         </v-radio-group>
@@ -48,7 +48,7 @@
                         border="left"
                         colored-border
                         icon="mdi-firework"
-                        color="orange accent-5"
+                        color="teal lighten-3 accent-5"
                         elevation="2"
                     >
                         당신의 MBTI는..?
@@ -58,12 +58,12 @@
                         >
                             <v-radio
                                 label="intp"
-                                color="orange"
+                                color="teal lighten-3"
                                 value="intp"
                             ></v-radio>
                             <v-radio
                                 label="enfp"
-                                color="orange"
+                                color="teal lighten-3"
                                 value="enfp"
                             ></v-radio>
                         </v-radio-group>
@@ -72,7 +72,7 @@
                         border="left"
                         colored-border
                         icon="mdi-firework"
-                        color="orange accent-5"
+                        color="teal lighten-3 accent-5"
                         elevation="2"
                     >
                         나의 하우스 메이트는..?
@@ -82,22 +82,22 @@
                         >
                             <v-radio
                                 label="흡연자여야 한다."
-                                color="orange"
+                                color="teal lighten-3"
                                 value="1"
                             ></v-radio>
                             <v-radio
                                 label="비흡연자여야 한다."
-                                color="orange"
+                                color="teal lighten-3"
                                 value="2"
                             ></v-radio>
                             <v-radio
                                 label="흡연여부는 상관 없다."
-                                color="orange"
+                                color="teal lighten-3"
                                 value="3"
                             ></v-radio>
                         </v-radio-group>
                     </v-alert>
-                    <v-btn @click="postMatchingInfo">POST matchinginfo</v-btn>
+                    <v-btn dark color="teal lighten-3" @click="postMatchingInfo">POST matchinginfo</v-btn>
                 </v-container>
             </v-form>
             <v-container>
@@ -124,7 +124,7 @@
                             ></v-text-field>
                         </v-col>
                     </v-row>
-                    <v-btn @click="getMatchingInfo">GET matchinginfo</v-btn>
+                    <v-btn dark color="teal lighten-3" @click="getMatchingInfo">GET matchinginfo</v-btn>
                 </v-container>
             </v-form>
             <v-container>

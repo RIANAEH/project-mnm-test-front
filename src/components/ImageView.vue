@@ -21,7 +21,7 @@
                             ></v-text-field>
                         </v-col>
                     </v-row>
-                    <v-btn @click="getImage">GET image</v-btn>
+                    <v-btn dark color="teal lighten-3" @click="getImage">GET image</v-btn>
                   </v-container>
               </v-form> 
               <v-img 

@@ -4,9 +4,8 @@
       app
       color="teal lighten-3"
       dark
-      prominent
     >
-      <div class="d-flex align-center mt-2 mx-2">
+      <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
@@ -16,8 +15,6 @@
           width="150"
         />
       </div>
-
-      <v-toolbar-title>Spring 서버와 Django 서버에서 제공하는 REST API를 테스트 할 수 있습니다.</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
@@ -32,6 +29,13 @@
     </v-app-bar>
 
     <v-content>
+      <v-alert
+        dense
+        type="info"
+        color="teal"
+      >
+        Spring 서버와 Django 서버에서 제공하는 REST API를 테스트 할 수 있습니다.
+      </v-alert>
       <v-expansion-panels>
         <AuthView/>
         <ImageView/>
