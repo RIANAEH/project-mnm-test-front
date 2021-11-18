@@ -2,37 +2,31 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
+      color="teal lighten-3"
       dark
+      prominent
     >
-      <div class="d-flex align-center">
+      <div class="d-flex align-center mt-2 mx-2">
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="./assets/logo_mnm.png"
           transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
+          width="150"
         />
       </div>
+
+      <v-toolbar-title>Spring 서버와 Django 서버에서 제공하는 REST API를 테스트 할 수 있습니다.</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
       <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        href="https://github.com/RIANAEH/project-mnm-test-front"
         target="_blank"
         text
       >
-        <span class="mr-2">Latest Release</span>
+        <span class="mr-2">GitHub</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
