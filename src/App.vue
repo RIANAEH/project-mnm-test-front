@@ -40,6 +40,7 @@
         <AuthView/>
         <ImageView/>
         <MatchingView/>
+        <MatchingResultView/>
       </v-expansion-panels>
     </v-content>
   </v-app>
@@ -49,6 +50,7 @@
 import ImageView from './components/ImageView.vue';
 import AuthView from './components/AuthView.vue';
 import MatchingView from './components/MatchingView.vue'
+import MatchingResultView from './components/MatchingResultView.vue'
 
 export default {
   name: 'App',
@@ -56,7 +58,8 @@ export default {
   components: {
     ImageView,
     AuthView,
-    MatchingView
+    MatchingView,
+    MatchingResultView
   },
 
   data: () => ({
