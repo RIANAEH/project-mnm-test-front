@@ -147,11 +147,18 @@ import axios from 'axios'
                     console.log(`response: ${res.data.response}`);
                     console.log(`message: ${res.data.message}`);
                     console.log(`data: ${res.data.data}`)
+                })
+                .then(() => {
+                    axios.post('http://localhost:5000/users', {
+                        id: this.join.data.id
+                    })
+                    .then((res) => {
+                        console.log(`status code: ${res.status}`);
+                        console.log(`data: ${res.data}`)
 
-                    this.join.response = res.data.response;
-                    this.join.message = res.data.message;
-                    this.join.data = res.data.data;
-                    this.join.view = true;
+                        this.join.response = "Success";
+                        this.join.view = true;
+                    });
                 });
             },
             postLogin() {
