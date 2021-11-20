@@ -24,11 +24,22 @@
                             @keyup="sendMessage"
                         >
                         <div
+                            class="mt-2"
                             v-for="(item, idx) in recvList"
                             :key="idx"
                         >
-                            <h3>uid : {{ item.uid }}</h3>
-                            <h3>message : {{ item.message }}</h3>
+                            <v-card
+                                class="mt-2 mb-2"
+                                color="teal lighten-3"
+                                dark
+                                max-width="400"
+                            >
+                                <v-card-text>
+                                    <div>uid : {{ item.user.id }}</div>
+                                    <div>{{ item.message }}</div>
+                                    <div>{{ item.sendAt }}</div>
+                                </v-card-text>
+                            </v-card>
                         </div>
                     </v-container>
             </v-card-text>
@@ -64,8 +75,12 @@ export default {
             console.log("Send message:" + this.message);
             if (this.stompClient && this.stompClient.connected) {
                 const msg = { 
-                uid: this.uid,
-                message: this.message 
+                user: {
+                    id: this.uid
+                },
+                message: this.message,
+                sendAt: Date.now(),
+                isRequest: false,
                 };
                 this.stompClient.send("/receive", JSON.stringify(msg), {});
             }
