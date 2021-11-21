@@ -12,6 +12,14 @@
                         color="teal lighten-3"
                     >두개 이상의 브라우저를 띄워 간단한 채팅을 확인해 볼 수 있다.</v-alert>
                     <v-container>
+                        cid : 
+                        <input
+                            v-model="cid"
+                            type="text"
+                        >
+                        <v-btn dark color="teal lighten-3" @click="postChattingRoom">Post Chatting Room</v-btn>
+                    </v-container>
+                    <v-container>
                         uid : 
                         <input
                             v-model="uid"
@@ -56,7 +64,9 @@ import SockJS from 'sockjs-client'
 export default {
     data() {
         return {
+            serverURL: 'http://192.168.0.118:5050', 
             uid: '',
+            cid: '4',
             message: '',
             recvList: []
             }
@@ -82,20 +92,28 @@ export default {
                 sendAt: Date.now(),
                 isRequest: false,
                 };
-                this.stompClient.send("/receive", JSON.stringify(msg), {});
+                this.stompClient.send("/receive/" + this.cid, JSON.stringify(msg), {});
             }
         }, 
         connect() {
-            const serverURL = "http://localhost:5050"
-            let socket = new SockJS(serverURL);
+            let socket = new SockJS(this.serverURL);
             this.stompClient = Stomp.over(socket);
-            console.log(`소켓 연결을 시도합니다. 서버 주소: ${serverURL}`)
+            console.log(`소켓 연결을 시도합니다. 서버 주소: ${this.serverURL}`)
             this.stompClient.connect(
                 {},
                 frame => {
                 this.connected = true;
                 console.log('소켓 연결 성공', frame);
-                this.stompClient.subscribe("/send", res => {
+
+                const msg = {
+                    uid: '1', 
+                    cid: '4', 
+                    sid: socket._transport.url.split('/')[4]
+                };
+                console.log(JSON.stringify(msg));
+                this.stompClient.send("/firstreceive", JSON.stringify(msg), {});
+
+                this.stompClient.subscribe("/send/" + this.cid, res => {
                     console.log('구독으로 받은 메시지 입니다.', res.body);
                     this.recvList.push(JSON.parse(res.body))
                 });
@@ -105,6 +123,9 @@ export default {
                 this.connected = false;
                 } 
             );               
+        }, 
+        postChattingRoom() {
+            
         }
     }
 }
